@@ -3,8 +3,18 @@ const axios = require('axios');
 exports.handler = async function (event, context) {
   const targetUrl = 'https://wdiiuv7qa8yxuax5l7z513u7vtj53orr.ui.nabu.casa' + event.path;
   const method = event.httpMethod;
-  const headers = event.headers;
   const data = JSON.parse(event.body);
+
+  // Construct the Authorization header for Basic Authentication
+  const username = 'chatgpt';
+  const password = 'lahs9s8d231!';
+  const authHeaderValue = 'Basic ' + Buffer.from(username + ':' + password).toString('base64');
+
+  // Create a new headers object with only the headers you want to forward
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': authHeaderValue,
+  };
 
   try {
     const response = await axios({
