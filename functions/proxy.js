@@ -3,7 +3,7 @@ const axios = require('axios');
 exports.handler = async function (event, context) {
   const targetUrl = 'https://wdiiuv7qa8yxuax5l7z513u7vtj53orr.ui.nabu.casa' + event.path;
   const method = event.httpMethod;
-  const data = JSON.parse(event.body);
+  const data = event.body ? JSON.parse(event.body) : null; // Check for empty event.body before parsing
 
   // Construct the Authorization header for Basic Authentication
   const username = 'chatgpt';
