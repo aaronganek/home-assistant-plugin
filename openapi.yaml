@@ -21,6 +21,21 @@ paths:
                 entity_id:
                   type: "string"
                   description: "The entity ID of the light to turn on."
+                  enum:
+                    - "light.dining_room_light"
+                    - "light.garage_main_lights"
+                    - "light.hallway_1_light"
+                    - "light.hallway_2_light"
+                    - "light.kitchen_bar_light"
+                    - "light.kitchen_cabinents_light"
+                    - "light.kitchen_overhead_light"
+                    - "light.living_room_light"
+                    - "light.mailbox_light"
+                    - "light.master_bathroom_light"
+                    - "light.master_bedroom_light"
+                    - "light.master_closet_light"
+                    - "light.office_light"
+                    - "light.patio_light"
       responses:
         "200":
           description: "OK"
@@ -39,6 +54,21 @@ paths:
                 entity_id:
                   type: "string"
                   description: "The entity ID of the light to turn off."
+                  enum:
+                    - "light.dining_room_light"
+                    - "light.garage_main_lights"
+                    - "light.hallway_1_light"
+                    - "light.hallway_2_light"
+                    - "light.kitchen_bar_light"
+                    - "light.kitchen_cabinents_light"
+                    - "light.kitchen_overhead_light"
+                    - "light.living_room_light"
+                    - "light.mailbox_light"
+                    - "light.master_bathroom_light"
+                    - "light.master_bedroom_light"
+                    - "light.master_closet_light"
+                    - "light.office_light"
+                    - "light.patio_light"
       responses:
         "200":
           description: "OK"
@@ -57,6 +87,21 @@ paths:
                 entity_id:
                   type: "string"
                   description: "The entity ID of the light to adjust."
+                  enum:
+                    - "light.dining_room_light"
+                    - "light.garage_main_lights"
+                    - "light.hallway_1_light"
+                    - "light.hallway_2_light"
+                    - "light.kitchen_bar_light"
+                    - "light.kitchen_cabinents_light"
+                    - "light.kitchen_overhead_light"
+                    - "light.living_room_light"
+                    - "light.mailbox_light"
+                    - "light.master_bathroom_light"
+                    - "light.master_bedroom_light"
+                    - "light.master_closet_light"
+                    - "light.office_light"
+                    - "light.patio_light"
                 brightness:
                   type: "integer"
                   description: "The desired brightness level (0-255)."
