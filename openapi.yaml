@@ -4,7 +4,7 @@ info:
   description: A ChatGPT plugin to control Home Assistant devices, including lights, media players, and input booleans.
   version: 'v1'
 servers:
-  - url: YOUR_HOME_ASSISTANT_URL/api
+  - url: https://wdiiuv7qa8yxuax5l7z513u7vtj53orr.ui.nabu.casa/api
 paths:
   /services/light/turn_on:
     post:
