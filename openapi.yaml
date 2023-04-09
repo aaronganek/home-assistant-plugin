@@ -1,64 +1,63 @@
-openapi: 3.0.1
+openapi: "3.0.1"
 info:
-  title: Home Assistant Plugin
-  description: A plugin that allows the user to control smart home devices via Home Assistant.
-  version: 'v1'
+  title: "Home Assistant Plugin"
+  description: "A plugin that allows the user to control smart home devices via Home Assistant."
+  version: "v1"
 servers:
-  - url: https://wdiiuv7qa8yxuax5l7z513u7vtj53orr.ui.nabu.casa/
+  - url: "https://creative-praline-359ad5.netlify.app/.netlify/functions/proxy"
 paths:
   /api/services/light/turn_on:
     post:
-      operationId: turnOnLight
-      summary: Turn on a light entity
+      operationId: "turnOnLight"
+      summary: "Turn on a light entity"
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
+              type: "object"
               properties:
                 entity_id:
-                  type: string
-                  description: The entity ID of the light to turn on.
+                  type: "string"
+                  description: "The entity ID of the light to turn on."
                 brightness_pct:
-                  type: integer
-                  description: The brightness percentage to set (0 to 100).
+                  type: "integer"
+                  description: "The brightness percentage to set (0 to 100)."
       responses:
         "200":
-          description: OK
+          description: "OK"
   /api/services/light/turn_off:
     post:
-      operationId: turnOffLight
-      summary: Turn off a light entity
+      operationId: "turnOffLight"
+      summary: "Turn off a light entity"
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
+              type: "object"
               properties:
                 entity_id:
-                  type: string
-                  description: The entity ID of the light to turn off.
+                  type: "string"
+                  description: "The entity ID of the light to turn off."
       responses:
         "200":
-          description: OK
+          description: "OK"
   /api/services/media_player/media_play_pause:
     post:
-      operationId: playPauseMedia
-      summary: Play or pause a media player entity
+      operationId: "playPauseMedia"
+      summary: "Play or pause a media player entity"
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
+              type: "object"
               properties:
                 entity_id:
-                  type: string
-                  description: The entity ID of the media player to play or pause.
+                  type: "string"
+                  description: "The entity ID of the media player to play or pause."
       responses:
         "200":
-          description: OK
-  # Additional paths for other services (e.g., volume control, input booleans, input buttons) can be added here.
+          description: "OK"
 components: {}
