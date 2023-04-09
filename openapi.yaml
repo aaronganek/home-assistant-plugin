@@ -24,7 +24,7 @@ paths:
                   type: "integer"
                   description: "The brightness percentage to set (0 to 100)."
       responses:
-        "200":
+        200:
           description: "OK"
   /api/services/light/turn_off:
     post:
@@ -41,7 +41,7 @@ paths:
                   type: "string"
                   description: "The entity ID of the light to turn off."
       responses:
-        "200":
+        200:
           description: "OK"
   /api/services/media_player/media_play_pause:
     post:
@@ -58,6 +58,5 @@ paths:
                   type: "string"
                   description: "The entity ID of the media player to play or pause."
       responses:
-        "200":
+        200:
           description: "OK"
-components: {}
