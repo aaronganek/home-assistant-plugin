@@ -10,7 +10,7 @@ paths:
   /api/services/light/turn_on:
     post:
       operationId: "turnOnLight"
-      summary: "Turn on an individual light entity. nly accepts individual light entities. Does not accept light groups. To turn on multiple lights, submit multiple light entities."
+      summary: "Turn on an individual light entity."
       requestBody:
         required: true
         content:
@@ -28,7 +28,7 @@ paths:
   /api/services/light/turn_off:
     post:
       operationId: "turnOffLight"
-      summary: "Turn off an individual light entity. Only accepts individual light entities. Does not accept light groups. To turn off multiple lights, submit multiple light entities."
+      summary: "Turn off an individual light entity."
       requestBody:
         required: true
         content:
@@ -164,14 +164,13 @@ paths:
       responses:
         "200":
           description: "OK"
-
   /api/services/cover/close_cover:
     post:
       tags:
         - Shades
       operationId: "closeShades"
       summary: "Close shades"
-      description: "Close individual shades. Use entity IDs of the shades you want to close. Example of shades are Window Shade"
+      description: "Close individual shades."
       requestBody:
         required: true
         content:
@@ -187,7 +186,6 @@ paths:
       responses:
         "200":
           description: "OK"
-
   # Endpoints for garage door
   /api/services/cover/open_cover:
     post:
@@ -209,7 +207,6 @@ paths:
       responses:
         "200":
           description: "OK"
-
   /api/services/cover/close_cover:
     post:
       tags:
