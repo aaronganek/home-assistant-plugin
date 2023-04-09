@@ -142,7 +142,7 @@ paths:
         "200":
           description: "OK"
   # Endpoints for shades
-  /api/services/cover/open_cover_shades:
+  /api/services/cover/open_cover:
     post:
       tags:
         - Shades
@@ -165,7 +165,7 @@ paths:
         "200":
           description: "OK"
 
-  /api/services/cover/close_cover_shades:
+  /api/services/cover/close_cover:
     post:
       tags:
         - Shades
@@ -189,7 +189,7 @@ paths:
           description: "OK"
 
   # Endpoints for garage door
-  /api/services/cover/open_cover_garage:
+  /api/services/cover/open_cover:
     post:
       tags:
         - Garage Door
@@ -210,7 +210,7 @@ paths:
         "200":
           description: "OK"
 
-  /api/services/cover/close_cover_garage:
+  /api/services/cover/close_cover:
     post:
       tags:
         - Garage Door
