@@ -41,30 +41,7 @@ paths:
                   description: "The entity ID of the light to turn off."
       responses:
         "200":
-          description: "OK"
-  # Endpoint for setting brightness of a light
-  /api/services/light/turn_on:
-    post:
-      operationId: "setLightBrightness"
-      summary: "Set the brightness level of a light entity"
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: "object"
-              properties:
-                entity_id:
-                  type: "string"
-                  description: "The entity ID of the light to adjust."
-                brightness:
-                  type: "integer"
-                  description: "The desired brightness level (0-255)."
-                  minimum: 0
-                  maximum: 255
-      responses:
-        200:
-          description: "OK"          
+          description: "OK"       
   # New endpoint for playing media
   /api/services/media_player/media_play:
     post:
