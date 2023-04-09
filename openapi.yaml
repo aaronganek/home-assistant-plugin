@@ -10,7 +10,7 @@ paths:
   /api/services/light/turn_on:
     post:
       operationId: "turnOnLight"
-      summary: "Turn on an individual light entity. "
+      summary: "Turn on an individual light entity. nly accepts individual light entities. Does not accept light groups. To turn on multiple lights, submit multiple light entities."
       requestBody:
         required: true
         content:
@@ -28,7 +28,7 @@ paths:
   /api/services/light/turn_off:
     post:
       operationId: "turnOffLight"
-      summary: "Turn off an individual light entity"
+      summary: "Turn off an individual light entity. Only accepts individual light entities. Does not accept light groups. To turn off multiple lights, submit multiple light entities."
       requestBody:
         required: true
         content:
@@ -46,7 +46,7 @@ paths:
   /api/services/media_player/media_play:
     post:
       operationId: "playMedia"
-      summary: "Play media on an individual media player entity. Unless otherwise noted, default media player is media_player.living_room"
+      summary: "Play media on an individual media player entity. Only accepts individual media player entities. Does not accept media player groups. Unless otherwise noted, default media player is media_player.living_room"
       requestBody:
         required: true
         content:
@@ -64,7 +64,7 @@ paths:
   /api/services/media_player/media_pause:
     post:
       operationId: "pauseMedia"
-      summary: "Pause or turn off media on an individual media player entity. Unless otherwise noted, default media player is media_player.living_room"
+      summary: "Pause or turn off media on an individual media player entity. Only accepts individual media player entities. Does not accept media player groups. Unless otherwise noted, default media player is media_player.living_room"
       requestBody:
         required: true
         content:
