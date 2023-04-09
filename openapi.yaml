@@ -6,6 +6,7 @@ info:
 servers:
   - url: "https://creative-praline-359ad5.netlify.app/.netlify/functions/proxy"
 paths:
+  # Endpoint for turning on a light
   /api/services/light/turn_on:
     post:
       operationId: "turnOnLight"
@@ -20,12 +21,10 @@ paths:
                 entity_id:
                   type: "string"
                   description: "The entity ID of the light to turn on."
-                brightness_pct:
-                  type: "integer"
-                  description: "The brightness percentage to set (0 to 100)."
       responses:
-        200:
+        "200":
           description: "OK"
+  # Endpoint for turning off a light
   /api/services/light/turn_off:
     post:
       operationId: "turnOffLight"
@@ -41,12 +40,13 @@ paths:
                   type: "string"
                   description: "The entity ID of the light to turn off."
       responses:
-        200:
+        "200":
           description: "OK"
-  /api/services/media_player/media_play_pause:
+  # New endpoint for playing media
+  /api/services/media_player/media_play:
     post:
-      operationId: "playPauseMedia"
-      summary: "Play or pause a media player entity"
+      operationId: "playMedia"
+      summary: "Play media on a media player entity"
       requestBody:
         required: true
         content:
@@ -56,7 +56,152 @@ paths:
               properties:
                 entity_id:
                   type: "string"
-                  description: "The entity ID of the media player to play or pause."
+                  description: "The entity ID of the media player to play."
       responses:
-        200:
+        "200":
           description: "OK"
+  # New endpoint for pausing media
+  /api/services/media_player/media_pause:
+    post:
+      operationId: "pauseMedia"
+      summary: "Pause or turn off media on a media player entity"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                entity_id:
+                  type: "string"
+                  description: "The entity ID of the media player to pause."
+      responses:
+        "200":
+          description: "OK"
+  # New endpoint for joining media players
+  /api/services/media_player/join:
+    post:
+      operationId: "joinMediaPlayers"
+      summary: "Join media players together"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                entity_id:
+                  type: "string"
+                  description: "The entity ID of the master media player."
+                other_entity_ids:
+                  type: "array"
+                  items:
+                    type: "string"
+                  description: "A list of entity IDs of the media players to join to the master."
+      responses:
+        "200":
+  # New endpoint for joining media players
+  /api/services/media_player/join:
+    post:
+      operationId: "joinMediaPlayers"
+      summary: "Join media players together"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                entity_id:
+                  type: "string"
+                  description: "The entity ID of the master media player."
+                other_entity_ids:
+                  type: "array"
+                  items:
+                    type: "string"
+                  description: "A list of entity IDs of the media players to join to the master."
+      responses:
+        "200":
+          description: "OK"
+  # New endpoint for unjoining media players
+  /api/services/media_player/unjoin:
+    post:
+      operationId: "unjoinMediaPlayers"
+      summary: "Unjoin media players"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                entity_id:
+                  type: "string"
+                  description: "The entity ID of the media player to unjoin."
+      responses:
+        "200":
+          description: "OK"
+  # Endpoint for opening a cover
+  /api/services/cover/open_cover:
+    post:
+      operationId: "openCover"
+      summary: "Open a cover entity"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                entity_id:
+                  type: "string"
+                  description: "The entity ID of the cover to open."
+      responses:
+        "200":
+          description: "OK"
+  # Endpoint for closing a cover
+  /api/services/cover/close_cover:
+    post:
+      operationId: "closeCover"
+      summary: "Close a cover entity"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                entity_id:
+                  type: "string"
+                  description: "The entity ID of the cover to close."
+      responses:
+        "200":
+          description: "OK"
+  # New endpoint for selecting a source for a media player
+  /api/services/media_player/select_source:
+    post:
+      operationId: "selectSource"
+      summary: "Select what music to play on a media player"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                entity_id:
+                  type: "string"
+                  description: "The entity ID of the media player."
+                source:
+                  type: "string"
+                  description: "The source to select for the media player."
+                  enum:
+                    - "Blind Melon & Similar Artists Station"
+                    - "Tom Petty & The Heartbreakers & Similar Artists Station"
+                    - "Tash Sultana & Similar Artists Station"
+                    - "Fruit Bats & Similar Artists Station"
+                    - "The Revivalists Radio"
+      responses:
+        "200":
+          description: "OK"
+components: {}
