@@ -141,11 +141,14 @@ paths:
       responses:
         "200":
           description: "OK"
-  # Endpoint for opening a cover
-  /api/services/cover/open_cover:
+  # Endpoints for shades
+  /api/services/cover/open_cover_shades:
     post:
-      operationId: "openCover"
-      summary: "Open a cover entity"
+      tags:
+        - Shades
+      operationId: "openShades"
+      summary: "Open shades"
+      description: "Open individual shades. Use entity IDs of the shades you want to open. Example of shades are Window Shade 1, Window Shade 2."
       requestBody:
         required: true
         content:
@@ -154,16 +157,45 @@ paths:
               type: "object"
               properties:
                 entity_id:
-                  type: "string"
-                  description: "The entity ID of the cover to open."
+                  type: "array"
+                  items:
+                    type: "string"
+                  description: "The entity IDs of the shades to open."
       responses:
         "200":
           description: "OK"
-  # Endpoint for closing a cover
-  /api/services/cover/close_cover:
+
+  /api/services/cover/close_cover_shades:
     post:
-      operationId: "closeCover"
-      summary: "Close a cover entity"
+      tags:
+        - Shades
+      operationId: "closeShades"
+      summary: "Close shades"
+      description: "Close individual shades. Use entity IDs of the shades you want to close. Example of shades are Window Shade"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                entity_id:
+                  type: "array"
+                  items:
+                    type: "string"
+                  description: "The entity IDs of the shades to close."
+      responses:
+        "200":
+          description: "OK"
+
+  # Endpoints for garage door
+  /api/services/cover/open_cover_garage:
+    post:
+      tags:
+        - Garage Door
+      operationId: "openGarageDoor"
+      summary: "Open garage door"
+      description: "Open the garage door. Use the entity ID of the garage door. Example of garage doors is tpg-garage_door."
       requestBody:
         required: true
         content:
@@ -173,7 +205,28 @@ paths:
               properties:
                 entity_id:
                   type: "string"
-                  description: "The entity ID of the cover to close."
+                  description: "The entity ID of the garage door to open."
+      responses:
+        "200":
+          description: "OK"
+
+  /api/services/cover/close_cover_garage:
+    post:
+      tags:
+        - Garage Door
+      operationId: "closeGarageDoor"
+      summary: "Close garage door"
+      description: "Close the garage door. Use the entity ID of the garage door. Example of garage doors is tpg-garage_door."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                entity_id:
+                  type: "string"
+                  description: "The entity ID of the garage door to close."
       responses:
         "200":
           description: "OK"
