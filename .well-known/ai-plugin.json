@@ -1,0 +1,19 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Home Assistant Plugin",
+  "name_for_model": "home_assistant",
+  "description_for_human": "Plugin for controlling smart home devices via Home Assistant. You can control lights, media players, input booleans, and input buttons.",
+  "description_for_model": "Plugin for controlling smart home devices via Home Assistant. You can turn lights on/off, control brightness, play/pause media players, control volume, and interact with input booleans and input buttons.",
+  "auth": {
+    "type": "user_http",
+    "authorization_type": "basic"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://aaronganek.github.io/home-assistant-plugin/openapi.yaml",
+    "is_user_authenticated": true
+  },
+  "logo_url": "https://aaronganek.github.io/home-assistant-plugin/logo.png",
+  "contact_email": "aaron.ganek@gmail.com",
+  "legal_info_url": "https://www.example.com/legal"
+}
