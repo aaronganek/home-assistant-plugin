@@ -10,10 +10,10 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://replit.com/@AaronGanek/Home-Assistant-ChatGPT-Plugin#openapi.yaml",
+    "url": "https://creative-praline-359ad5.netlify.app/openapi.yaml",
     "is_user_authenticated": true
   },
-  "logo_url": "https://replit.com/@AaronGanek/Home-Assistant-ChatGPT-Plugin#logo.png",
+  "logo_url": "https://creative-praline-359ad5.netlify.app/logo.png",
   "contact_email": "aaron.ganek@gmail.com",
   "legal_info_url": "https://www.example.com/legal"
 }
