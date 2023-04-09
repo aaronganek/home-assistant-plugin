@@ -46,7 +46,7 @@ paths:
   /api/services/media_player/media_play:
     post:
       operationId: "playMedia"
-      summary: "Play media on an individual media player entity"
+      summary: "Play media on an individual media player entity. Unless otherwise noted, default media player is media_player.living_room"
       requestBody:
         required: true
         content:
@@ -64,7 +64,7 @@ paths:
   /api/services/media_player/media_pause:
     post:
       operationId: "pauseMedia"
-      summary: "Pause or turn off media on an individual media player entity"
+      summary: "Pause or turn off media on an individual media player entity. Unless otherwise noted, default media player is media_player.living_room"
       requestBody:
         required: true
         content:
@@ -234,7 +234,7 @@ paths:
   /api/services/media_player/select_source:
     post:
       operationId: "selectSource"
-      summary: "Select what music to play on an individual media player"
+      summary: "Select what music to play on an individual media player. Only select source when asked to play a specfic band."
       requestBody:
         required: true
         content:
