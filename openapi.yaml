@@ -1,13 +1,14 @@
-openapi: 3.0.3
+openapi: 3.0.1
 info:
   title: Home Assistant Plugin
-  description: A ChatGPT plugin to control Home Assistant devices, including lights, media players, and input booleans.
+  description: A plugin that allows the user to control smart home devices via Home Assistant.
   version: 'v1'
 servers:
-  - url: https://wdiiuv7qa8yxuax5l7z513u7vtj53orr.ui.nabu.casa/api
+  - url: https://wdiiuv7qa8yxuax5l7z513u7vtj53orr.ui.nabu.casa/
 paths:
-  /services/light/turn_on:
+  /api/services/light/turn_on:
     post:
+      operationId: turnOnLight
       summary: Turn on a light entity
       requestBody:
         required: true
@@ -21,12 +22,13 @@ paths:
                   description: The entity ID of the light to turn on.
                 brightness_pct:
                   type: integer
-                  description: The brightness percentage (0-100) to set the light to (optional).
+                  description: The brightness percentage to set (0 to 100).
       responses:
-        '200':
+        "200":
           description: OK
-  /services/light/turn_off:
+  /api/services/light/turn_off:
     post:
+      operationId: turnOffLight
       summary: Turn off a light entity
       requestBody:
         required: true
@@ -39,10 +41,11 @@ paths:
                   type: string
                   description: The entity ID of the light to turn off.
       responses:
-        '200':
+        "200":
           description: OK
-  /services/media_player/media_play_pause:
+  /api/services/media_player/media_play_pause:
     post:
+      operationId: playPauseMedia
       summary: Play or pause a media player entity
       requestBody:
         required: true
@@ -55,41 +58,7 @@ paths:
                   type: string
                   description: The entity ID of the media player to play or pause.
       responses:
-        '200':
+        "200":
           description: OK
-  /services/media_player/volume_set:
-    post:
-      summary: Set the volume level of a media player entity
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                entity_id:
-                  type: string
-                  description: The entity ID of the media player to set the volume for.
-                volume_level:
-                  type: number
-                  format: float
-                  description: The volume level to set (0.0 to 1.0).
-      responses:
-        '200':
-          description: OK
-  /services/input_boolean/toggle:
-    post:
-      summary: Toggle an input boolean
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                entity_id:
-                  type: string
-                  description: The entity ID of the input boolean to toggle.
-      responses:
-        '200':
-          description: OK
+  # Additional paths for other services (e.g., volume control, input booleans, input buttons) can be added here.
+components: {}
