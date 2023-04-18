@@ -3,19 +3,16 @@ const axios = require('axios');
 exports.handler = async function (event, context) {
   console.log('Received event:', JSON.stringify(event));
 
-  // Extract the Home Assistant URL from the plugin configuration
-  const targetUrlBase = context.clientContext.custom.home_assistant_url;
-
   // Extract the portion of the URL that comes after "/.netlify/functions/proxy"
   const proxyPath = '/.netlify/functions/proxy';
   const apiPath = event.rawUrl.substring(event.rawUrl.indexOf(proxyPath) + proxyPath.length);
 
-  const targetUrl = targetUrlBase + apiPath;
+  const targetUrl = 'https://wdiiuv7qa8yxuax5l7z513u7vtj53orr.ui.nabu.casa' + apiPath;
   const method = event.httpMethod;
   const data = event.body ? JSON.parse(event.body) : null;
 
   // Check if the Authorization header is present
-  if (!event.headers.Authorization) {
+  if (!event.headers.authorization) {
     console.error('Authorization header is missing');
     return {
       statusCode: 401,
@@ -24,7 +21,7 @@ exports.handler = async function (event, context) {
   }
 
   // Extract the Bearer token from the Authorization header
-  const token = event.headers.Authorization.split(' ')[1];
+  const token = event.headers.authorization.split(' ')[1];
 
   // Use the extracted token in the headers for the target request
   const headers = {
