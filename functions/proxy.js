@@ -11,9 +11,10 @@ exports.handler = async function (event, context) {
   const method = event.httpMethod;
   const data = event.body ? JSON.parse(event.body) : null;
 
-  // Use the Long-Lived Access Token as a Bearer token
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjNjdjN2E4NmU2ODM0Nzg5OTQyYjk2ODM1NjY1MTc1MyIsImlhdCI6MTY4MTA3MzUzMiwiZXhwIjoxOTk2NDMzNTMyfQ.cEkk5E2AYaG3mWxax0WlnvI-Z_mh2e8RPaHSFXhSPuI';
+  // Extract the Bearer token from the Authorization header
+  const token = event.headers.Authorization.split(' ')[1];
 
+  // Use the extracted token in the headers for the target request
   const headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${token}`,

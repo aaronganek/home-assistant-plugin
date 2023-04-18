@@ -6,7 +6,7 @@
   "description_for_model": "Plugin for controlling smart home devices via Home Assistant.",
   "auth": {
     "type": "user_http",
-    "authorization_type": "basic"
+    "authorization_type": "bearer"
   },
   "api": {
     "type": "openapi",
