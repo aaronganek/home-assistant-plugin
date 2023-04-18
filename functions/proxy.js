@@ -3,6 +3,9 @@ const axios = require('axios');
 exports.handler = async function (event, context) {
   console.log('Received event:', JSON.stringify(event));
 
+  // Log the headers received by the proxy function
+  console.log('Received headers:', JSON.stringify(event.headers));
+
   // Extract the portion of the URL that comes after "/.netlify/functions/proxy"
   const proxyPath = '/.netlify/functions/proxy';
   const apiPath = event.rawUrl.substring(event.rawUrl.indexOf(proxyPath) + proxyPath.length);
