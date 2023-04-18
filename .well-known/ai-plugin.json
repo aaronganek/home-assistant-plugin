@@ -13,6 +13,15 @@
     "url": "https://creative-praline-359ad5.netlify.app/openapi.yaml",
     "is_user_authenticated": true
   },
+  "config": [
+    {
+      "key": "home_assistant_url",
+      "label": "Home Assistant URL",
+      "type": "string",
+      "placeholder": "https://your-home-assistant-url",
+      "required": true
+    }
+  ],
   "logo_url": "https://creative-praline-359ad5.netlify.app/logo.png",
   "contact_email": "aaron.ganek@gmail.com",
   "legal_info_url": "https://www.example.com/legal"
