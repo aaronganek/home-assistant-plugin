@@ -11,6 +11,15 @@ exports.handler = async function (event, context) {
   const method = event.httpMethod;
   const data = event.body ? JSON.parse(event.body) : null;
 
+  // Check if the Authorization header is present
+  if (!event.headers.Authorization) {
+    console.error('Authorization header is missing');
+    return {
+      statusCode: 401,
+      body: JSON.stringify({ message: 'Authorization header is missing' }),
+    };
+  }
+
   // Extract the Bearer token from the Authorization header
   const token = event.headers.Authorization.split(' ')[1];
 
