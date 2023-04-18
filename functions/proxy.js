@@ -7,7 +7,7 @@ exports.handler = async function (event, context) {
   const proxyPath = '/.netlify/functions/proxy';
   const apiPath = event.rawUrl.substring(event.rawUrl.indexOf(proxyPath) + proxyPath.length);
 
-  const targetUrl = 'https://wdiiuv7qa8yxuax5l7z513u7vtj53orr.ui.nabu.casa' + apiPath;
+  const targetUrl = 'https://guestassistant.xyz' + apiPath;
   const method = event.httpMethod;
   const data = event.body ? JSON.parse(event.body) : null;
 
