@@ -6,11 +6,32 @@ info:
 servers:
   - url: "https://creative-praline-359ad5.netlify.app/.netlify/functions/proxy"
 paths:
-  # Endpoint for turning on a light
+  # Endpoint for getting the list of all entities and their states
+  /api/states:
+    get:
+      operationId: "getStates"
+      summary: "Get the list of all entities and their states"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    entity_id:
+                      type: "string"
+                    state:
+                      type: "string"
+                    attributes:
+                      type: "object"
+# Endpoint for turning on a light
   /api/services/light/turn_on:
     post:
       operationId: "turnOnLight"
-      summary: "Turn on a light entity."
+      summary: "Turns on a light entity. Available entity names can be determined from the getStates function. If not confident on the exact entity name, ask user to clarify first."
       requestBody:
         required: true
         content:
@@ -28,7 +49,7 @@ paths:
   /api/services/light/turn_off:
     post:
       operationId: "turnOffLight"
-      summary: "Turn off a light entity."
+      summary: "Turn off a light entity. Available entity names can be determined from the getStates function. If not confident on the exact entity name, ask user to clarify first."
       requestBody:
         required: true
         content:
@@ -41,7 +62,7 @@ paths:
                   description: "The entity ID of the light to turn off."
       responses:
         "200":
-          description: "OK"       
+          description: "OK"           
   # New endpoint for playing media
   /api/services/media_player/media_play:
     post:
