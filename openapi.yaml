@@ -31,7 +31,7 @@ paths:
   /api/services/light/turn_on:
     post:
       operationId: "turnOnLight"
-      summary: "Turns on a light entity. First check for available entities using the getStates function. Only perform TurnOn action using an available entity id from getStates."
+      summary: "Turns on a light using `entity_id`. Query `getStates` to identify available light entities. Select entity_ids exclusively from `getStates` results. If unsure, show likely options, ask user."
       requestBody:
         required: true
         content:
@@ -49,7 +49,7 @@ paths:
   /api/services/light/turn_off:
     post:
       operationId: "turnOffLight"
-      summary: "Turns off a light entity. Before using, first check for available entities using the getStates function. Only perform TurnOff action using an available entity id from getStates."
+      summary: "Turns off a light using `entity_id`. Query `getStates` to identify available light entities. Select entity_ids exclusively from `getStates` results. If unsure, show likely options, ask user."
       requestBody:
         required: true
         content:
